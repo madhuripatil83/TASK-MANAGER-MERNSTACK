@@ -6,9 +6,9 @@ import axios from "axios";
 export const TaskManager = () => {
   const [tasks, setTasks] = useState([]);
 
-  console.log("💡 Current tasks in TaskManager:", tasks);
-  console.log("🧠 Type of tasks:", typeof tasks);
-  console.log("🧪 Is array?", Array.isArray(tasks));
+  console.log("Current tasks in TaskManager:", tasks);
+  console.log(" Type of tasks:", typeof tasks);
+  console.log(" Is array?", Array.isArray(tasks));
 
   //const API = import.meta.env.VITE_API_BASE_URL;
 
@@ -23,10 +23,10 @@ export const TaskManager = () => {
         ? response.data
         : JSON.parse(response.data);
 
-      setTasks(tasksData); // ✅ use the parsed and validated data
+      setTasks(tasksData);
     } catch (error) {
       console.error("error fetching tasks:", error.message);
-      setTasks([]); // fallback
+      setTasks([]);
     }
   };
 
