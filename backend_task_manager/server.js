@@ -16,8 +16,13 @@ const Task = mongoose.model("Task", taskSchema);
 
 mongoose
   .connect("mongodb://localhost:27017/mydb")
+<<<<<<< HEAD
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
+=======
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
+>>>>>>> bb4bec1b2b8d31c31aee02f5452baa4f5c854bc1
 
 app.get("/", (req, res) => {
   res.send("A Simple Task Manager");
@@ -38,9 +43,15 @@ app.post("/submit", async (req, res) => {
 
 app.get("/tasks", async (req, res) => {
   try {
+<<<<<<< HEAD
     const tasks = await Task.find(); 
     console.log(tasks);
     res.json(tasks); // 
+=======
+    const tasks = await Task.find(); // gets all tasks
+    console.log(tasks);
+    res.json(tasks); // ✅ returns array, even if empty
+>>>>>>> bb4bec1b2b8d31c31aee02f5452baa4f5c854bc1
   } catch (error) {
     console.error("Error fetching tasks:", error.message);
     res.status(500).json({ error: "Server error" });
